@@ -30,7 +30,7 @@ export const Unit = ({
     <>
       <UnitBanner title={title} description={description} />
 
-      <div className="relative flex flex-col items-center">
+      <div className="grid grid-cols-4 gap-4">
         {lessons.map((lesson, i) => {
           const isCurrent = lesson.id === activeLesson?.id;
           const isLocked = !lesson.completed && !isCurrent;
