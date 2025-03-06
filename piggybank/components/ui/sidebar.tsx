@@ -24,14 +24,14 @@ export const Sidebar = ({ className }: Props) => {
         </div>
       </Link>
       <div className="flex flex-col gap-y-2 flex-1">
-        <SidebarItem label="Learn" href="/learn" iconSrc="window.svg" />
+        <SidebarItem label="Learn" href="/learn" iconSrc="/learn.svg" />
         <SidebarItem
           label="Leaderboard"
           href="/leaderboard"
-          iconSrc="window.svg"
+          iconSrc="leaderboard.svg"
         />
-        <SidebarItem label="Quests" href="/quests" iconSrc="window.svg" />
-        <SidebarItem label="Shop" href="/shop" iconSrc="window.svg" />
+        <SidebarItem label="Quests" href="/quests" iconSrc="/quests.svg" />
+        <SidebarItem label="Shop" href="/shop" iconSrc="/shop.svg" />
       </div>
       <div className="p-4">
         <ClerkLoading>
