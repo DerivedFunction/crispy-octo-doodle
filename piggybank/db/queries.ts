@@ -10,10 +10,10 @@ import {
   lessons,
   units,
   userProgress,
-  // userSubscription,
+  userSubscription,
 } from "./schema";
 
-// const DAY_IN_MS = 86_400_000;
+const DAY_IN_MS = 86_400_000;
 
 export const getCourses = cache(async () => {
   const data = await db.query.courses.findMany();
@@ -204,7 +204,7 @@ export const getLessonPercentage = cache(async () => {
 
   return percentage;
 });
-/*
+
 export const getUserSubscription = cache(async () => {
   const { userId } = await auth();
 
@@ -244,4 +244,3 @@ export const getTopTenUsers = cache(async () => {
 
   return data;
 });
-*/
