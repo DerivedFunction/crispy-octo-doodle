@@ -5,10 +5,10 @@ import { eq } from "drizzle-orm";
 
 import db from "./drizzle";
 import {
-  // challengeProgress,
+  challengeProgress,
   courses,
+  units,
   //  lessons,
-  // units,
   userProgress,
   // userSubscription,
 } from "./schema";
@@ -35,7 +35,7 @@ export const getUserProgress = cache(async () => {
 
   return data;
 });
-/*
+
 export const getUnits = cache(async () => {
   const { userId } = await auth();
   const userProgress = await getUserProgress();
@@ -83,11 +83,11 @@ export const getUnits = cache(async () => {
 
   return normalizedData;
 });
-*/
+
 export const getCourseById = cache(async (courseId: number) => {
   const data = await db.query.courses.findFirst({
     where: eq(courses.id, courseId),
-    /* with: {
+    with: {
       units: {
         orderBy: (units, { asc }) => [asc(units.order)],
         with: {
@@ -96,7 +96,7 @@ export const getCourseById = cache(async (courseId: number) => {
           },
         },
       },
-    },*/
+    },
   });
 
   return data;
