@@ -7,8 +7,8 @@ import db from "./drizzle";
 import {
   challengeProgress,
   courses,
+  lessons,
   units,
-  //  lessons,
   userProgress,
   // userSubscription,
 } from "./schema";
@@ -108,7 +108,7 @@ export const getCourseProgress = cache(async () => {
 
   if (!userId || !userProgress?.activeCourseId) return null;
 
-  /*const unitsInActiveCourse = await db.query.units.findMany({
+  const unitsInActiveCourse = await db.query.units.findMany({
     orderBy: (units, { asc }) => [asc(units.order)],
     where: eq(units.courseId, userProgress.activeCourseId),
     with: {
@@ -125,9 +125,9 @@ export const getCourseProgress = cache(async () => {
           },
         },
       },
-    },*/
-});
-/*
+    },
+  });
+
   const firstUncompletedLesson = unitsInActiveCourse
     .flatMap((unit) => unit.lessons)
     .find((lesson) => {
@@ -204,7 +204,7 @@ export const getLessonPercentage = cache(async () => {
 
   return percentage;
 });
-
+/*
 export const getUserSubscription = cache(async () => {
   const { userId } = await auth();
 
