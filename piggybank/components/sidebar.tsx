@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
-import { SidebarItem } from "./sidebar-item";
+import { SidebarItem } from "@/components/sidebar-item";
 import { ClerkLoading, ClerkLoaded, UserButton } from "@clerk/nextjs";
 import { Loader } from "lucide-react";
 type Props = {
@@ -31,7 +31,7 @@ export const Sidebar = ({ className }: Props) => {
           iconSrc="leaderboard.svg"
         />
         <SidebarItem label="Quests" href="/quests" iconSrc="/quests.svg" />
-        <SidebarItem label="Shop" href="/shop" iconSrc="/shop.svg" />
+        <SidebarItem label="Shop" href="/store" iconSrc="/store.svg" />
       </div>
       <div className="p-4">
         <ClerkLoading>

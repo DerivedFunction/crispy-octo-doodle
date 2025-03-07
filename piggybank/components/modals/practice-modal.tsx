@@ -1,6 +1,5 @@
 "use client";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import {
   Dialog,
@@ -11,56 +10,40 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Button } from "../ui/button";
-import { useExitModal } from "@/app/store/use-exit-modal";
-export const ExitModal = () => {
-  const router = useRouter();
+import { usePracticeModal } from "@/app/store/use-practice-modal";
+export const PracticeModal = () => {
   const [isClient, setIsClient] = useState(false);
-  const { isOpen, close } = useExitModal();
+  const { isOpen, close } = usePracticeModal();
   useEffect(() => setIsClient(true), []);
+
   if (!isClient) return null;
   return (
     <Dialog open={isOpen} onOpenChange={close}>
       <DialogContent className="max-w-md">
         <DialogHeader>
           <div className="mb-5 flex w-full items-center justify-center">
-            <Image
-              src="/piggybroke.svg"
-              alt="Mascot Sad"
-              height={80}
-              width={80}
-            />
+            <Image src="/coins.svg" alt="coins" height={80} width={80} />
           </div>
 
           <DialogTitle className="text-center text-2xl font-bold">
-            Wait, don&apos;t go!
+            Practice Mode
           </DialogTitle>
 
           <DialogDescription className="text-center text-base">
-            You&apos;re about to leave the lesson. Are you sure?
+            Regain Coins and Points in Practice Mode. You cannot lose points or
+            coins in this mode.
           </DialogDescription>
         </DialogHeader>
 
         <DialogFooter className="mb-4">
           <div className="flex w-full flex-col gap-y-4">
             <Button
-              variant="primary"
+              variant="primaryOutline"
               className="w-full"
               size="lg"
               onClick={close}
             >
-              Keep learning
-            </Button>
-
-            <Button
-              variant="dangerOutline"
-              className="w-full"
-              size="lg"
-              onClick={() => {
-                close();
-                router.push("/learn");
-              }}
-            >
-              End session
+              Continue
             </Button>
           </div>
         </DialogFooter>

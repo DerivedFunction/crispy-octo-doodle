@@ -1,10 +1,14 @@
 import { redirect } from "next/navigation";
 
 import { getLesson, getUserProgress, getUserSubscription } from "@/db/queries";
-import { Quiz } from "./quiz";
-
-const LessonPage = async () => {
-  const lessonData = getLesson();
+import { Quiz } from "../quiz";
+type Props = {
+  params: {
+    lessonId: number;
+  };
+};
+const LessonIdPage = async ({ params }: Props) => {
+  const lessonData = getLesson(params.lessonId);
   const userProgressData = getUserProgress();
   const userSubscriptionData = getUserSubscription();
   const [lesson, userProgress, userSubscription] = await Promise.all([
@@ -29,4 +33,4 @@ const LessonPage = async () => {
   );
 };
 
-export default LessonPage;
+export default LessonIdPage;

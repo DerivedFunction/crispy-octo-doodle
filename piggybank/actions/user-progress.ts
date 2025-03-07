@@ -12,9 +12,8 @@ import {
   getUserSubscription,
 } from "@/db/queries";
 import { challengeProgress, challenges, userProgress } from "@/db/schema";
+import { MAX_HEARTS, POINTS_TO_REFILL } from "@/constants";
 
-const MAX_HEARTS = 5;
-const POINTS_TO_REFILL = 50;
 export const upsertUserProgress = async (courseId: number) => {
   const { userId } = await auth();
   const user = await currentUser();
@@ -97,7 +96,7 @@ export const reduceHearts = async (challengeId: number) => {
     })
     .where(eq(userProgress.userId, userId));
 
-  revalidatePath("/shop");
+  revalidatePath("/store");
   revalidatePath("/learn");
   revalidatePath("/quests");
   revalidatePath("/leaderboard");
@@ -121,7 +120,7 @@ export const refillHearts = async () => {
     })
     .where(eq(userProgress.userId, currentUserProgress.userId));
 
-  revalidatePath("/shop");
+  revalidatePath("/store");
   revalidatePath("/learn");
   revalidatePath("/quests");
   revalidatePath("/leaderboard");

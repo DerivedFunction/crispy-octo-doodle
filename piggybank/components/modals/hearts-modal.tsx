@@ -11,12 +11,17 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Button } from "../ui/button";
-import { useExitModal } from "@/app/store/use-exit-modal";
-export const ExitModal = () => {
+import { useHeartsModal } from "@/app/store/use-hearts-modal";
+export const HeartsModal = () => {
   const router = useRouter();
   const [isClient, setIsClient] = useState(false);
-  const { isOpen, close } = useExitModal();
+  const { isOpen, close } = useHeartsModal();
   useEffect(() => setIsClient(true), []);
+
+  const onClick = () => {
+    close();
+    router.push("/store");
+  };
   if (!isClient) return null;
   return (
     <Dialog open={isOpen} onOpenChange={close}>
@@ -32,11 +37,11 @@ export const ExitModal = () => {
           </div>
 
           <DialogTitle className="text-center text-2xl font-bold">
-            Wait, don&apos;t go!
+            You ran out of coins!
           </DialogTitle>
 
           <DialogDescription className="text-center text-base">
-            You&apos;re about to leave the lesson. Are you sure?
+            Get Pro for unlimited coins, or purchase them in the store
           </DialogDescription>
         </DialogHeader>
 
@@ -46,21 +51,18 @@ export const ExitModal = () => {
               variant="primary"
               className="w-full"
               size="lg"
-              onClick={close}
+              onClick={onClick}
             >
-              Keep learning
+              Get unlimited coins
             </Button>
 
             <Button
-              variant="dangerOutline"
+              variant="primaryOutline"
               className="w-full"
               size="lg"
-              onClick={() => {
-                close();
-                router.push("/learn");
-              }}
+              onClick={close}
             >
-              End session
+              No thanks
             </Button>
           </div>
         </DialogFooter>

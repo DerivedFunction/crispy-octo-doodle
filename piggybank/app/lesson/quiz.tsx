@@ -1,6 +1,6 @@
 "use client";
 
-import { challengeOptions, challenges, userSubscription } from "@/db/schema";
+import { challengeOptions, challenges } from "@/db/schema";
 import { useState, useTransition } from "react";
 import { Header } from "./header";
 import { Challenge } from "./challenge";
@@ -12,6 +12,9 @@ import Image from "next/image";
 import { ResultCard } from "./result-card";
 import { useRouter } from "next/navigation";
 import Confetti from "react-confetti";
+import { useHeartsModal } from "../store/use-hearts-modal";
+import { useMount } from "react-use";
+import { usePracticeModal } from "../store/use-practice-modal";
 
 type Props = {
   initialPercentage: number;
@@ -21,11 +24,7 @@ type Props = {
     completed: boolean;
     challengeOptions: (typeof challengeOptions.$inferSelect)[];
   })[];
-  userSubscription:
-    | (typeof userSubscription.$inferSelect & {
-        isActive: boolean;
-      })
-    | null;
+  userSubscription: boolean;
 };
 export const Quiz = ({
   initialPercentage,
@@ -34,12 +33,20 @@ export const Quiz = ({
   intialLessonChallenges,
   userSubscription,
 }: Props) => {
+  const { open: openHeartsModal } = useHeartsModal();
+  const { open: openPracticeModal } = usePracticeModal();
+  useMount(() => {
+    if (initialPercentage === 100) {
+      openPracticeModal();
+    }
+  });
   const router = useRouter();
-
   const [pending, startTransition] = useTransition();
   const [lessonId] = useState(initialLessonId);
   const [hearts, setHearts] = useState(initialHearts);
-  const [percentage, setPercentage] = useState(initialPercentage);
+  const [percentage, setPercentage] = useState(() => {
+    return initialPercentage === 100 ? 0 : initialPercentage;
+  });
   const [challenges] = useState(intialLessonChallenges);
   const [activeIndex, setActiveIndex] = useState(() => {
     const incompleteIndex = challenges.findIndex(
@@ -56,16 +63,16 @@ export const Quiz = ({
         <Confetti recycle={false} numberOfPieces={500} tweenDuration={10000} />
         <div className="flex flex-col gap-y-4 lg:gap-y-8 max-w-lg mx-auto text-center items-center justify-center h-full">
           <Image
-            src="/globe.svg"
-            width={100}
-            height={100}
+            src="/piggywin.svg"
+            width={200}
+            height={200}
             alt="finished"
             className="hidden lg:block"
           />
           <Image
-            src="/globe.svg"
-            width={50}
-            height={50}
+            src="/piggywin.svg"
+            width={100}
+            height={100}
             alt="finished"
             className="block lg:hidden"
           />
@@ -74,7 +81,10 @@ export const Quiz = ({
           </h1>
           <div className="flex items-center gap-x-4 w-full">
             <ResultCard variant="points" value={challenges.length * 10} />
-            <ResultCard variant="hearts" value={hearts} />
+            <ResultCard
+              variant="hearts"
+              value={userSubscription ? Infinity : hearts}
+            />
           </div>
         </div>
         <Footer
@@ -122,7 +132,7 @@ export const Quiz = ({
         upsertChallengeProgress(challenge.id)
           .then((response) => {
             if (response?.error === "hearts") {
-              console.error("Missing hearts");
+              openHeartsModal();
               return;
             }
             setStatus("correct");
@@ -138,7 +148,7 @@ export const Quiz = ({
         reduceHearts(challenge.id)
           .then((response) => {
             if (response?.error === "hearts") {
-              console.error("Missing hearts");
+              openHeartsModal();
               return;
             }
             setStatus("wrong");
@@ -156,7 +166,7 @@ export const Quiz = ({
       <Header
         hearts={hearts}
         percentage={percentage}
-        hasActiveSubscription={!!userSubscription?.isActive}
+        hasActiveSubscription={userSubscription}
       ></Header>
       <div className="flex-1">
         <div className="h-full flex items-center justify-center">

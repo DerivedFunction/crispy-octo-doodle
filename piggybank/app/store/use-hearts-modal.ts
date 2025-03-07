@@ -1,12 +1,12 @@
 import { create } from "zustand";
 
-type ExitModalState = {
+type HeartsModalState = {
   isOpen: boolean;
   close: () => void;
   open: () => void;
 };
 
-export const useExitModal = create<ExitModalState>((set) => ({
+export const useHeartsModal = create<HeartsModalState>((set) => ({
   isOpen: false,
   open: () => set({ isOpen: true }),
   close: () => set({ isOpen: false }),

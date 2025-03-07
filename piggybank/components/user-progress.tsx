@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Button } from "./button";
+import { Button } from "./ui/button";
 import Image from "next/image";
 import { InfinityIcon } from "lucide-react";
 import { courses } from "@/db/schema";
@@ -29,7 +29,7 @@ export const UserProgress = ({
           />
         </Button>
       </Link>
-      <Link href="/shop">
+      <Link href="/store">
         <Button variant="ghost" className="text-orange-400">
           <Image
             src="/piggy.svg"
@@ -41,7 +41,7 @@ export const UserProgress = ({
           {points}
         </Button>
       </Link>
-      <Link href="/shop">
+      <Link href="/store">
         <Button variant="ghost" className="text-rose-400">
           <Image
             src="/coins.svg"

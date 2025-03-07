@@ -20,6 +20,7 @@ type UnitProps = {
 };
 
 export const Unit = ({
+  id,
   title,
   description,
   lessons,
@@ -28,7 +29,11 @@ export const Unit = ({
 }: UnitProps) => {
   return (
     <>
-      <UnitBanner title={title} description={description} />
+      <UnitBanner
+        title={title}
+        description={description}
+        isActive={activeLesson?.unitId === id}
+      />
 
       <div className="grid grid-cols-4 gap-4">
         {lessons.map((lesson, i) => {
