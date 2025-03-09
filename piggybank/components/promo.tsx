@@ -17,7 +17,7 @@ export const Promo = () => {
       </div>
 
       <Button variant="super" className="w-full" size="lg" asChild>
-        <Link href="/shop">Upgrade today</Link>
+        <Link href="/store">Upgrade today</Link>
       </Button>
     </div>
   );
