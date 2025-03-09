@@ -8,7 +8,7 @@ export const Promo = () => {
     <div className="space-y-4 rounded-xl border-2 p-4">
       <div className="space-y-2">
         <div className="flex items-center gap-x-2">
-          <Image src="/piggywin.svg" alt="Pro" height={26} width={26} />
+          <Image src="/pro.svg" alt="Pro" height={26} width={26} />
 
           <h3 className="text-lg font-bold">Upgrade to Pro</h3>
         </div>
