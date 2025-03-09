@@ -13,7 +13,7 @@ export const Promo = () => {
           <h3 className="text-lg font-bold">Upgrade to Pro</h3>
         </div>
 
-        <p className="text-muted-foreground">Get unlimited hearts and more!</p>
+        <p className="text-muted-foreground">Get unlimited coins and more!</p>
       </div>
 
       <Button variant="super" className="w-full" size="lg" asChild>
