@@ -47,6 +47,7 @@ const main = async () => {
         title: "Introduction to Saving",
         description: "Learn the fundamentals of saving money",
         order: 1,
+        pageId: 1,
       },
       {
         id: 2,
@@ -54,6 +55,7 @@ const main = async () => {
         title: "Planning a Budget",
         description: "Master the art of budgeting",
         order: 2,
+        pageId: 2,
       },
       {
         id: 3,
@@ -61,6 +63,7 @@ const main = async () => {
         title: "Understanding Debt",
         description: "Explore debt types and management",
         order: 1,
+        pageId: 3,
       },
       {
         id: 4,

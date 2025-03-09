@@ -5,6 +5,7 @@ import { getUserProgress, getUserSubscription } from "@/db/queries";
 import Image from "next/image";
 import { redirect } from "next/navigation";
 import { Items } from "./items";
+import { Quests } from "@/components/ui/quests";
 
 const ShopPage = async () => {
   const userProgressData = getUserProgress();
@@ -23,6 +24,7 @@ const ShopPage = async () => {
           points={userProgress.points}
           hasActiveSubscription={!!userSubscription?.isActive}
         />
+        <Quests points={userProgress.points} />
       </StickyWrapper>
       <FeedWrapper>
         <div className="w-full flex flex-col items-center">

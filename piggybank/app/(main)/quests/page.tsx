@@ -5,7 +5,7 @@ import { FeedWrapper } from "@/components/feed-wrapper";
 import { Promo } from "@/components/promo";
 import { StickyWrapper } from "@/components/sticky-wrapper";
 import { UserProgress } from "@/components/user-progress";
-import { QUESTS } from "@/constants";
+import { QUESTS } from "@/constants/constants";
 import { getUserProgress, getUserSubscription } from "@/db/queries";
 import { Progress } from "@/components/ui/progess";
 

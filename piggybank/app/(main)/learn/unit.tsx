@@ -17,9 +17,11 @@ type UnitProps = {
       })
     | undefined;
   activeLessonPercentage: number;
+  pageId: number;
 };
 
 export const Unit = ({
+  pageId,
   id,
   title,
   description,
@@ -30,6 +32,7 @@ export const Unit = ({
   return (
     <>
       <UnitBanner
+        pageId={pageId}
         title={title}
         description={description}
         isActive={activeLesson?.unitId === id}

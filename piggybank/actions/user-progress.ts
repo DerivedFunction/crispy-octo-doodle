@@ -12,7 +12,7 @@ import {
   getUserSubscription,
 } from "@/db/queries";
 import { challengeProgress, challenges, userProgress } from "@/db/schema";
-import { MAX_HEARTS, POINTS_TO_REFILL } from "@/constants";
+import { MAX_HEARTS, POINTS_TO_REFILL } from "@/constants/constants";
 
 export const upsertUserProgress = async (courseId: number) => {
   const { userId } = await auth();

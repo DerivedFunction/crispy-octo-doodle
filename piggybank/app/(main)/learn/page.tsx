@@ -12,6 +12,8 @@ import {
 import { redirect } from "next/navigation";
 import { Unit } from "./unit";
 import { lessons, units as unitsSchema } from "@/db/schema";
+import { Promo } from "@/components/promo";
+import { Quests } from "@/components/ui/quests";
 
 const LearnPage = async () => {
   const userProgressData = getUserProgress();
@@ -48,6 +50,8 @@ const LearnPage = async () => {
           points={userProgress.points}
           hasActiveSubscription={!!userSubscription?.isActive}
         />
+        {!!!userSubscription?.isActive && <Promo />}
+        <Quests points={userProgress.points} />
       </StickyWrapper>
 
       <FeedWrapper>
@@ -55,6 +59,7 @@ const LearnPage = async () => {
         {units.map((unit) => (
           <div key={unit.id} className="mb-10">
             <Unit
+              pageId={unit.pageId}
               id={unit.id}
               order={unit.order}
               description={unit.description}

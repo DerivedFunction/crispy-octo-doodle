@@ -29,6 +29,7 @@ export const units = pgTable("units", {
     .references(() => courses.id, { onDelete: "cascade" })
     .notNull(),
   order: integer("order").notNull(),
+  pageId: integer("page_id").notNull().default(0),
 });
 
 export const unitRelations = relations(units, ({ many, one }) => ({

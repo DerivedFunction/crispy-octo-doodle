@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const ButtonsPage = () => {
   return (
@@ -16,6 +17,11 @@ const ButtonsPage = () => {
 
       <Button variant="sidebar">sidebar</Button>
       <Button variant="sidebarOutline">sidebar Outline</Button>
+      <Link href="/pages/1">
+        <Button variant="primary" className="w-full">
+          Go to Savings Unit 1
+        </Button>
+      </Link>
     </div>
   );
 };
