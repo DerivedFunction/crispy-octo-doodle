@@ -1,7 +1,4 @@
 import type { PropsWithChildren } from "react";
-
-import { Footer } from "./footer";
-import { Header } from "./header";
 import { MobileHeader } from "@/components/mobile-header";
 import { Sidebar } from "@/components/sidebar";
 
