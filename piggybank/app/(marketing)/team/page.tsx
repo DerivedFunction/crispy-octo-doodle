@@ -333,7 +333,60 @@ export default function Home() {
               <div className="text-sm text-neutral-500 mt-2">
                 <p>
                   A free and open-source front-end JavaScript library to build
-                  user interfaces based on components.
+                  user interfaces based on components. The core of our website
+                  design.
+                </p>
+              </div>
+            </CarouselItem>
+            <CarouselItem className="flex flex-col items-center p-6 bg-neutral-100 rounded-xl shadow-md hover:shadow-lg hover:-translate-y-2 transition-all duration-300 basis-full md:basis-1/2 lg:basis-1/3">
+              <div className="relative group mb-4 w-[200px] h-[200px] flex flex-col justify-end">
+                <Image
+                  src="/about/tailwind.svg"
+                  height={100}
+                  width={200}
+                  alt="Item 1"
+                  className="transform group-hover:scale-110 group-hover:rotate-3 transition-transform duration-400 ease-out object-contain"
+                />
+                <div className="absolute inset-0 bg-indigo-200 opacity-0 group-hover:opacity-20 rounded-full blur-md transition-opacity duration-400"></div>
+              </div>
+              <Link href="https://tailwindcss.com/">
+                <p className="text-lg font-bold text-neutral-700 ">
+                  Tailwind CSS
+                </p>
+              </Link>
+              <p>Frontend Styling</p>
+
+              <div className="text-sm text-neutral-500 mt-2">
+                <p>
+                  Rapidly build modern websites without ever leaving HTML. A
+                  utility-first CSS framework packed with classes like flex,
+                  pt-4, text-center and rotate-90 that can be composed to build
+                  any design, directly in the markup.
+                </p>
+              </div>
+            </CarouselItem>
+            <CarouselItem className="flex flex-col items-center p-6 bg-neutral-100 rounded-xl shadow-md hover:shadow-lg hover:-translate-y-2 transition-all duration-300 basis-full md:basis-1/2 lg:basis-1/3">
+              <div className="relative group mb-4 w-[200px] h-[200px] flex flex-col justify-end">
+                <Image
+                  src="/about/shadcn.svg"
+                  height={100}
+                  width={200}
+                  alt="Item 1"
+                  className="transform group-hover:scale-110 group-hover:rotate-3 transition-transform duration-400 ease-out object-contain"
+                />
+                <div className="absolute inset-0 bg-indigo-200 opacity-0 group-hover:opacity-20 rounded-full blur-md transition-opacity duration-400"></div>
+              </div>
+              <Link href="https://ui.shadcn.com/">
+                <p className="text-lg font-bold text-neutral-700 ">shadcn</p>
+              </Link>
+              <p>Frontend Component Library</p>
+
+              <div className="text-sm text-neutral-500 mt-2">
+                <p>
+                  Shadcn/ui is a set of beautifully-designed, accessible
+                  components and a code distribution platform. Works with React
+                  and TailWind CSS. Open Source. Open Code. It is how we build a
+                  custom component library.
                 </p>
               </div>
             </CarouselItem>
@@ -352,15 +405,16 @@ export default function Home() {
               <Link href="https://nextjs.org/">
                 <p className="text-lg font-bold text-neutral-700">NextJs</p>
               </Link>
-              <p>FrontEnd/Backend</p>
+              <p>FrontEnd/Backend Deployment</p>
 
               <div className="text-sm text-neutral-500 mt-2">
                 <p>
-                  By Vercel, for React-based web applications with server-side
-                  rendering and static rendering. Next.js is created by Vercel
-                  for React-based web applications with server-side rendering
-                  and static rendering. Vercel also recompiles automatically
-                  whenever changes are pushed to GitHub.
+                  Next.js is created by Vercel for React-based web applications
+                  with server-side rendering and static rendering. Also provides
+                  the developer tools and cloud infrastructure to build, scale,
+                  and secure a faster, more personalized website. Vercel also
+                  builds the website automatically whenever changes are pushed
+                  to GitHub.
                 </p>
               </div>
             </CarouselItem>
@@ -411,11 +465,11 @@ export default function Home() {
               <p>Admin Database Manager</p>
               <div className="text-sm text-neutral-500 mt-2">
                 <p>
-                  Drizzle studio grabs your drizzle config file, connects to
-                  your database and lets you browse, add, delete and update
-                  everything based on your existing drizzle sql schema. It
-                  supports explicit null and empty string values, booleans,
-                  numbers and big integers, json objects and json arrays.
+                  Drizzle studio connects to our Neon PostgreSQL database and
+                  lets us browse, add, delete and update everything based on our
+                  existing Drizzle SQL schema. It supports explicit null and
+                  empty string values, booleans, numbers and big integers, JSON
+                  objects and JSON arrays.
                 </p>
               </div>
             </CarouselItem>

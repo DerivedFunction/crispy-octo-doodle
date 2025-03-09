@@ -18,7 +18,7 @@ export const Header = () => {
           <div className="pt-8 pl-4 pb-7 flex items-center gap-x-3">
             <Image src="/mascot.png" height={40} width={40} alt="Piggy" />
             <h1 className="text-2xl font-extrabold text-purple-600 tracking-wide ml-2">
-              PiggyBank
+              PiggyBank Pal$
             </h1>
           </div>
         </Link>
