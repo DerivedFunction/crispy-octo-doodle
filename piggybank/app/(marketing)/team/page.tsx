@@ -165,8 +165,8 @@ export default function Home() {
                 </p>
                 <br />
                 <p>
-                  I enjoy travelling, lifting, hiking, cooking and doing
-                  anything adventurous in my spare time.
+                  I enjoy traveling, lifting, hiking, cooking and doing anything
+                  adventurous in my spare time.
                 </p>
                 <br />
                 <b>Skills:</b>
@@ -232,7 +232,7 @@ export default function Home() {
                   Karina Makhani
                 </Link>
               </p>
-              <p>Project Roadmap Planner</p>
+              <p>Project Manager</p>
               <div className="text-sm text-neutral-500 mt-2">
                 <p>
                   My experience is predominantly in software engineering, as
